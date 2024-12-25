@@ -21,7 +21,7 @@
             %>
 
             <% category.forEach((menuItem) => { %>
-                <div class="menu-item bold menu-title">Item #<%= menuItem.id %>. <%= menuItem.name %></div>
+                <div class="menu-item bold menu-title">Item #<%= menuItem.id %>. <%= menuItem.name %> <% if(menuItem.rating === 5) { %> ⭐ <%} %></div> <!-- Level up task here -->
                 <div class="menu-item bold">Price</div>
                 <div class="menu-item">BD<%= menuItem.price %></div>
                 <div class="menu-item bold">Rating</div>
