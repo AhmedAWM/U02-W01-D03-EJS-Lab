@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - <%= title %></title>
+
+    <%- include('./partials/style') %> <!-- Adding style to the page -->
+</head>
+<body>
+    <%- include('./partials/nav') %> <!-- Adding nav to the page -->
+
+    <main>
+        <h1 class="category-title"><%= title %></h1>
+
+        <div class="menu-container">
+            <%
+                const category = RESTAURANT.menu.filter((cat) => {
+                    return cat.category === title;
+                });
+            %>
+
+            <% category.forEach((menuItem) => { %>
+                <div class="menu-item bold menu-title">Item #<%= menuItem.id %>. <%= menuItem.name %></div>
+                <div class="menu-item bold">Price</div>
+                <div class="menu-item">BD<%= menuItem.price %></div>
+                <div class="menu-item bold">Rating</div>
+                <div class="menu-item">★ <%= menuItem.rating %></div>
+                <div class="menu-item bold">Description</div>
+                <div class="menu-item"><%= menuItem.details %></div>
+            <% });%>
+        </div>
+    </main>
+    
+</body>
+</html>
